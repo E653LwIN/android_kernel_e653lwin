@@ -112,6 +112,7 @@ config ARCH_MSM8909
 	select MSM_BIMC_BWMON
 	select MSM_JTAG_MM if CORESIGHT_ETM
 	select RCU_BOOST if DEBUG_KMEMLEAK
+	select HAS_MACH_MEMUTILS
 
 config ARCH_MSM8916
 	bool "MSM8916"
@@ -1063,5 +1064,11 @@ config PHICOMM_BOARD_C630Lw
     help
       C630Lw project macro define
 #yaming.chen, DATE20150515-01 END
+
+config HAS_MACH_MEMUTILS
+	default n
+	bool "Motorola MSM memcpy enhancements"
+	help
+	Faster memcpy performance for Krait
 
 endif
