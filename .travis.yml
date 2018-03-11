@@ -9,13 +9,13 @@ script:
 - export CROSS_COMPILE="$HOME/arm-eabi-4.7/bin/arm-eabi-"
 - export ARCH=arm
 - "./compile.sh"
-- export md5=$(md5sum e653lwin-$(date +%d%m%y)-*.zip | awk '{ print $1 }' | cut -c-5)
+- export md5=$(md5sum e653lwin/e653lwin-$(date +%d%m%y)-*.zip | awk '{ print $1 }' | cut -c-5)
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
     secure: zBhNsDhRcqOEGReEsFQLiucmAgULxEzzL5dSZJI3kI2j7NrgJhDVhcFPwLxSA9PWFsLFnw1Ruu0j0bsIsu38B/layV0nbMF7p+L74mmZtDvb3dI9GLLpr5pSDe1zSmXqLE1ge4dNAEc6tcVQ8Du+/wEFGyzBg9TD1MhOkRJRSAHmd5FlwoSD28TkqBQ07jQsWMJy1Ypr+bRewBmc2IbEETCzN9kap3ZSSoDrKyfGpj4G5tWYXiaX+kSsPpzYqeB91/KT6FZ+uu0EMFcsYd/nrUhcDrFHAahIzPvfS1yfewcmr0/nyMRonHkdnNSLm01XO89cfJnDomDTUKkc+Xt5IUAoOyH5tTAV11haMN6XAkDkDpBakn727SlxOHHPJyyCHYcn2OkohJCYGk/xCxM8yEhVV4dUPFgOg3Kp1Se3d2o/ppoBBuZzFnJ6u25npaed7eCEqKA22tGKzhrUEH/BxucwpAdNBB5X3Bf1hvDuT57GKpUsJStIZKmrSXMThKakDDI+9OFhzUpudr368RaGBnBCEQ9IqmruMOsELc/cERHFnyLDm5dX4w0oejs2c8ipbQk+j2ts9mZBc6+xDI88mda9K9mkSJflC0U+V8lGBZTcjK1jFEsguG5JDGQpHCKvE1c/dSCgwcYRq3Dmf/S6B0T4d7wGpdyznB1tlBdsaic=
-  file: "./e653lwin-$(date +%d%m%y)-$md5.zip"
+  file: "./e653lwin/e653lwin-$(date +%d%m%y)-$md5.zip"
   on:
     repo: E653LwIN/android_kernel_e653lwin
     branch: cm-12.1
