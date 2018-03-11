@@ -1,0 +1,20 @@
+language: c
+before_script:
+- wget https://github.com/opensource591/arm-eabi-gcc/raw/master/arm-eabi-4.7.zip -O
+  $HOME/arm-eabi-4.7.zip
+- cd $HOME && unzip arm-eabi-4.7.zip
+- cd $HOME/arm-eabi-4.7 && git checkout -f
+script:
+- cd /home/travis/build/E653LwIN/android_kernel_e653lwin
+- export CROSS_COMPILE="$HOME/arm-eabi-4.7/bin/arm-eabi-"
+- export ARCH=arm
+- "./compile.sh"
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: JxmiX8ZcK57ybIzARhch2+wn2phQ2paqBwN7k4iCV+uuuW0C8phw1R2GpJzoi/OYoP1sAo6OnS6kCgIFgxlrnnqElxw8ZlsN8T0p5JdgQzvh250kq5O1KPbcr6QSNJexWOXWsN6xDXmYUERwfJYDLI0prOdld6xqd2Q376p+Hqiq3SLaKUm4Wl3x4dLfLLI7zQ1tT6V60o+FK360MzJbO3Vc+y5JgZmb5hB1gK1NQcOXY47jJ1S8+3S+bkinXRDnNoQN90Yi/u9+DQbYEIXL5YOxediuR8drKx97i55ennVBETOD6dOqYYq2l+8Qlc+gS6gRt5qmX0Qpa0dvTA4dCLG67gfAK9pYLn1GHExgG8Wg+BEJyiuQJlLwC3HHEowBScO+8I3Go/zVepEcfCccPFglg3ASAzn+DSXGE48+xCYtTabY6tcfHvC6g0RugMNiBDhOvVYO5pfq2zudcsKtY8dfs3ToX73zMf/YRnfAhUB6wf3NHnJoFPHKpT6uKad8DZlj1YBWgdS9TD7XyONiqqp83idvC85pCS73599dh30PNXNJSZ9aqUVJaLjNN505/z0qd3K64T2fX1odJ0c1Qkh+Lh5nr1DQk/MZCh6bnP/tGWE5ljJ/YfR9nDrjxnwkb1IPTlNhtq0xE+xj69boMuBt3fWacOhrak6wFYBhz7E=
+  file: "./*.zip"
+  on:
+    repo: E653LwIN/android_kernel_e653lwin
+    branch: cm-14.1
